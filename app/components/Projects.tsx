@@ -54,8 +54,9 @@ export default function Projects() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="border border-white/10 bg-[#161616] p-4 flex flex-col group hover:border-white/20 transition-colors"
+                                className="border border-white/10 bg-[#161616] flex flex-col group hover:border-white/20 transition-colors"
                             >
+                                <Link href={`/projects/${project.slug}`} className="p-4 flex flex-col h-full cursor-pointer">
 
                                 {/* Image Container */}
                                 <div className="w-full h-[250px] md:h-[320px] bg-transparent relative overflow-hidden mb-6 flex items-center justify-center rounded-sm">
@@ -70,12 +71,12 @@ export default function Projects() {
                                 <div className="flex flex-col flex-grow px-2">
                                     <div className="flex items-center justify-between mb-3">
                                         <h3 className="text-white font-bold text-lg md:text-xl tracking-tight">{project.title}</h3>
-                                        <Link href={`/projects/${project.slug}`} aria-label="View Project" className="text-white hover:text-[#F13D52] transition-colors">
+                                        <div aria-label="View Project" className="text-white group-hover:text-[#F13D52] transition-colors">
                                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                                 <polyline points="7 7 17 7 17 17"></polyline>
                                             </svg>
-                                        </Link>
+                                        </div>
                                     </div>
 
                                     <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed mb-6 font-light">
@@ -95,6 +96,7 @@ export default function Projects() {
                                     </div>
                                 </div>
 
+                                </Link>
                             </motion.div>
                         ))}
                     </div>

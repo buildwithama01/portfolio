@@ -65,7 +65,7 @@ export const projectsData = [
         problemStatement: "Nigerian healthcare facilities often manage patient records across disconnected systems or paper, making it hard to verify patient identity reliably, track care from registration to pharmacy, and stay compliant with data protection requirements like NDPR. Patients also have no consistent way to access their own medical history across providers.",
         solution: "Built an integrated EMR system with NIN based patient identity verification, giving both patients and healthcare providers a secure portal covering registration, provider records, and an admin layer for facility management. All data is encrypted with AES 256 (bank level encryption), stored in compliance with NDPR, and only accessible to authorized providers, with 24/7 access for patients and staff alike.",
         duration: "1",
-        toolsUsed: ["", "", "", "", "", ""],
+        toolsUsed: ["Next.js", "Typescript", "Tailwind", "Postgres", "Supabase", "Vercel", "Chatbot"],
         liveSiteUrl: "https://healthmr-five.vercel.app",
         longDescription: "An integrated electronic medical records system built for Nigerian healthcare facilities, from patient registration through pharmacy."
     },

@@ -3,6 +3,43 @@ import { notFound } from 'next/navigation';
 import { projectsData } from '../../data/projects';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiSupabase, SiVercel, SiReact, SiClerk, SiRedis, SiPostgresql, SiFramer } from "react-icons/si";
+import { FaRobot, FaCreditCard } from "react-icons/fa";
+
+const getToolIcon = (tool: string) => {
+    switch (tool.toLowerCase()) {
+        case "next.js":
+        case "next":
+            return <SiNextdotjs color="#ffffff" className="w-8 h-8" title={tool} />;
+        case "typescript":
+            return <SiTypescript color="#3178C6" className="w-8 h-8" title={tool} />;
+        case "tailwind":
+        case "tailwind css":
+            return <SiTailwindcss color="#06B6D4" className="w-8 h-8" title={tool} />;
+        case "supabase":
+            return <SiSupabase color="#3FCF8E" className="w-8 h-8" title={tool} />;
+        case "vercel":
+            return <SiVercel color="#ffffff" className="w-8 h-8" title={tool} />;
+        case "react":
+        case "react native":
+            return <SiReact color="#61DAFB" className="w-8 h-8" title={tool} />;
+        case "clerk":
+            return <SiClerk color="#6C47FF" className="w-8 h-8" title={tool} />;
+        case "redis":
+            return <SiRedis color="#DC382D" className="w-8 h-8" title={tool} />;
+        case "postgres":
+            return <SiPostgresql color="#4169E1" className="w-8 h-8" title={tool} />;
+        case "framer motion":
+            return <SiFramer color="#0055FF" className="w-8 h-8" title={tool} />;
+        case "chatgpt":
+        case "chatbot":
+            return <FaRobot color="#10A37F" className="w-8 h-8" title={tool} />;
+        case "paystack":
+            return <FaCreditCard color="#09A5DB" className="w-8 h-8" title={tool} />;
+        default:
+            return null;
+    }
+};
 
 export default async function CaseStudy({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -81,12 +118,17 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                             Tools Used
                             <span className="text-[#F13D52] inline-block w-[0.2em] h-[0.2em] ml-2 bg-[#F13D52]"></span>
                         </h2>
-                        <div className="flex flex-wrap gap-3">
-                            {project.toolsUsed.map((tool, idx) => (
-                                <div key={idx} className="w-14 h-14 border border-white/10 bg-transparent rounded-sm flex items-center justify-center text-gray-500 text-xs">
-                                    {tool}
-                                </div>
-                            ))}
+                        <div className="flex flex-wrap gap-4 mt-4">
+                            {project.toolsUsed && project.toolsUsed.map((tool, idx) => {
+                                const icon = getToolIcon(tool);
+                                return icon ? (
+                                    <div key={idx} className="flex flex-col items-center justify-center gap-2">
+                                        <div className="w-16 h-16 border border-white/10 bg-[#161616] rounded-sm flex items-center justify-center hover:border-white/20 transition-colors">
+                                            {icon}
+                                        </div>
+                                    </div>
+                                ) : null;
+                            })}
                         </div>
                     </div>
                 </div>
